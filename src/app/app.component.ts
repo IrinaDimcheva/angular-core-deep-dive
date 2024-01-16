@@ -9,10 +9,7 @@ import { Course } from './model/course';
 })
 export class AppComponent {
   courses = COURSES;
-
-  clickCard() {
-    console.log('App component - click event bubbled');
-  }
+  // courses = [];
 
   selectCourse(course: Course) {
     console.log('App component - click event bubbled', course);

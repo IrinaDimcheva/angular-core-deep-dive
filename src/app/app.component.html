@@ -6,7 +6,31 @@
 </div>
 
 <div class="courses">
-  @for (course of courses; track course.id) {
-  <course-card [course]="course" (courseSelected)="selectCourse($event)" />
+  <!-- @for (course of courses; track course.id; let index = $index; let count =
+  $count; let first = $first; let last = $last; let even = $even; let odd =
+  $odd) {
+  <course-card
+    [course]="course"
+    [index]="index"
+    [class.is-first]="first"
+    [class.is-last]="last"
+    [class.is-even]="even"
+    [class.is-odd]="odd"
+    (courseSelected)="selectCourse($event)"
+  /> -->
+  @for (course of courses; track course.id; let lastEl = $last; let even =
+  $even; let odd = $odd) {
+  <!-- <h1>Count: {{ $count }}</h1> -->
+  <course-card
+    [course]="course"
+    [index]="$index"
+    [class.is-first]="$first"
+    [class.is-last]="lastEl"
+    [class.is-even]="even"
+    [class.is-odd]="odd"
+    (courseSelected)="selectCourse($event)"
+  />
+  } @empty {
+  <h1>No courses found!</h1>
   }
 </div>
