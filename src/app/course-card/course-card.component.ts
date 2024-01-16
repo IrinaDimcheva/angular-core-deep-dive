@@ -35,4 +35,14 @@ export class CourseCardComponent {
       beginner: this.course.category === 'BEGINNER',
     };
   }
+
+  cardStyles() {
+    return {
+      'text-decoration': 'underline',
+    };
+
+    // return {
+    //   'background-image': 'url(' + this.course.iconUrl + ')',
+    // };
+  }
 }
