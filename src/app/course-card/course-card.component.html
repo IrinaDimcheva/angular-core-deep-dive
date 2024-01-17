@@ -1,11 +1,10 @@
-<div class="course-card">
+<div class="course-card" #container>
   <div class="course-title">{{ cardIndex || "" }} {{ course.description }}</div>
 
   <!-- <ng-content></ng-content> -->
   <!-- <ng-content select="img"></ng-content> -->
-  <ng-content select=".course-image"></ng-content>
+  <ng-content select="course-image"></ng-content>
   <ng-content select=".course-description"></ng-content>
-  <ng-content></ng-content>
 
   <!-- <div class="course-category">
     @switch(course.category) { @case('BEGINNER') {
