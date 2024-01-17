@@ -5,10 +5,36 @@
   />
 </div>
 
-<!-- <div class="courses">
-  @for (course of courses; track course.id; let index = $index; let count =
-  $count; let first = $first; let last = $last; let even = $even; let odd =
-  $odd) {
+<div class="demo">
+  <!-- <div>Start date: {{ startDate | date }}</div> -->
+  <!-- <div>Start date: {{ startDate | date : "MM/dd/yy" }}</div> -->
+  <div>Start date: {{ startDate | date : "MMM/dd/yyyy" }}</div>
+
+  <!-- <div>{{ title | uppercase }}</div> -->
+  <!-- <div>{{ title | lowercase }}</div> -->
+  <div>{{ title | titlecase }}</div>
+
+  <!-- <div>{{ price | number }}</div> -->
+  <!-- <div>{{ price | number : "3.3-5" }}</div> -->
+
+  <!-- <div>{{ price | currency }}</div> -->
+  <!-- <div>{{ price | currency : "EUR" }}</div> -->
+  <!-- <div>{{ price | currency : "BGN" }}</div> -->
+  <div>{{ price | currency : "GBP" }}</div>
+
+  <div>Percentage: {{ rate | percent }}</div>
+</div>
+
+<!-- {{ courses | json }} -->
+
+<div *ngFor="let pair of course | keyvalue">
+  {{ pair.key + ": " + pair.value }}
+</div>
+
+<div class="courses">
+  @for (course of courses | slice:0:2; track course.id; let index = $index; let
+  count = $count; let first = $first; let last = $last; let even = $even; let
+  odd = $odd) {
   <course-card
     [course]="course"
     [index]="index"
@@ -17,8 +43,9 @@
   } @empty {
   <h1>No courses found!</h1>
   }
-</div> -->
-<div class="courses">
+</div>
+
+<!-- <div class="courses">
   <course-card
     *ngFor="
       let course of courses;
@@ -32,4 +59,4 @@
     [course]="course"
     [cardIndex]="i + 1"
   />
-</div>
+</div> -->
