@@ -18,9 +18,17 @@
   <h1>No courses found!</h1>
   }
 </div> -->
-<div class="courses">
-  <course-card [course]="courses[0]" (courseSelected)="selectCourse($event)" />
-  <course-card [course]="courses[1]" (courseSelected)="selectCourse($event)" />
+<div class="courses" #container>
+  <course-card
+    #cardRef1
+    [course]="courses[0]"
+    (courseSelected)="selectCourse($event)"
+  />
+  <course-card
+    #cardRef2
+    [course]="courses[1]"
+    (courseSelected)="selectCourse($event)"
+  />
 </div>
 
 <!-- <div class="courses">
