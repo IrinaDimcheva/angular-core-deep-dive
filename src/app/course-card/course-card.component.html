@@ -1,7 +1,12 @@
 <div class="course-card">
   <div class="course-title">{{ cardIndex || "" }} {{ course.description }}</div>
-  <img #courseImage width="300" alt="Angular Logo" [src]="course.iconUrl" />
-  <div class="course-description">{{ course.longDescription }}</div>
+
+  <!-- <ng-content></ng-content> -->
+  <!-- <ng-content select="img"></ng-content> -->
+  <ng-content select=".course-image"></ng-content>
+  <ng-content select=".course-description"></ng-content>
+  <ng-content></ng-content>
+
   <!-- <div class="course-category">
     @switch(course.category) { @case('BEGINNER') {
     <div class="category">Beginner</div>
