@@ -11,7 +11,7 @@ import { Course } from '../model/course';
 })
 export class CourseCardComponent {
   @Input({ required: true }) course: Course;
-  @Input({ required: true }) index: number;
+  // @Input({ required: true }) index: number;
   @Input() cardIndex: number;
   @Output() courseSelected = new EventEmitter<Course>();
   // @Output('courseSelected') courseEmitter = new EventEmitter<Course>();
