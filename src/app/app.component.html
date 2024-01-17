@@ -5,25 +5,14 @@
   />
 </div>
 
-<!-- <div class="courses">
-  @for (course of courses | slice:0:2; track course.id; let index = $index; let
-  count = $count; let first = $first; let last = $last; let even = $even; let
-  odd = $odd) {
-  <course-card
-    [course]="course"
-    [index]="index"
-    (courseSelected)="selectCourse($event)"
-  />
+<button (click)="editCourses()">Edit Courses</button>
+
+<div class="courses" #container>
+  @for (course of courses; track course.id) {
+  <course-card [course]="course" (courseSelected)="selectCourse($event)" />
   } @empty {
   <h1>No courses found!</h1>
   }
-</div> -->
-<div class="courses" #container>
-  <course-card
-    #cardRef1
-    [course]="courses[0]"
-    (courseSelected)="selectCourse($event)"
-  />
 </div>
 
 <!-- <div class="courses">
