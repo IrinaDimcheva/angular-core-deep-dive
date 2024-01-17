@@ -24,7 +24,7 @@ export class AppComponent implements AfterViewInit {
   constructor() {}
 
   ngAfterViewInit(): void {
-    console.log(this.cards);
+    // console.log(this.cards);
   }
 
   selectCourse(course: Course) {}
