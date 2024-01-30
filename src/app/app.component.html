@@ -6,34 +6,26 @@
 </div>
 
 <div class="courses" *ngIf="courses[0] as course">
+  <ng-template #blankImage let-courseName="description">
+    <p class="warn">{{ courseName }} has no image yet.</p>
+    <img src="/assets/empty-image.png" />
+  </ng-template>
+
+  <div
+    *ngTemplateOutlet="blankImage; context: { description: course.description }"
+  ></div>
+  <ng-container
+    *ngTemplateOutlet="
+      blankImage;
+      context: { description: courses[1].description }
+    "
+  ></ng-container>
+
+  <hr />
+  <hr />
+
   <course-card [course]="course" (courseSelected)="selectCourse($event)">
     <course-image [src]="course.iconUrl"></course-image>
-    <!-- <course-image [src]="courses[1].iconUrl"></course-image>
-    <course-image [src]="courses[2].iconUrl"></course-image> -->
     <div class="course-description">{{ course.longDescription }}</div>
   </course-card>
 </div>
-
-<!-- <div class="courses" #container>
-  @for (course of courses; track course.id) {
-  <course-card [course]="course" (courseSelected)="selectCourse($event)" />
-  } @empty {
-  <h1>No courses found!</h1>
-  }
-</div> -->
-
-<!-- <div class="courses">
-  <course-card
-    *ngFor="
-      let course of courses;
-      index as i;
-      first as isFirst;
-      last as isLast;
-      even as isEven;
-      odd as isOdd
-    "
-    (courseSelected)="selectCourse($event)"
-    [course]="course"
-    [cardIndex]="i + 1"
-  />
-</div> -->
