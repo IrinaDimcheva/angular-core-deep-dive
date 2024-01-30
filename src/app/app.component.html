@@ -11,20 +11,11 @@
     <img src="/assets/empty-image.png" />
   </ng-template>
 
-  <div
-    *ngTemplateOutlet="blankImage; context: { description: course.description }"
-  ></div>
-  <ng-container
-    *ngTemplateOutlet="
-      blankImage;
-      context: { description: courses[1].description }
-    "
-  ></ng-container>
-
-  <hr />
-  <hr />
-
-  <course-card [course]="course" (courseSelected)="selectCourse($event)">
+  <course-card
+    [course]="course"
+    [noImageTmp]="blankImage"
+    (courseSelected)="selectCourse($event)"
+  >
     <course-image [src]="course.iconUrl"></course-image>
     <div class="course-description">{{ course.longDescription }}</div>
   </course-card>

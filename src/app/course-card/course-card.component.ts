@@ -9,6 +9,7 @@ import {
   Input,
   Output,
   QueryList,
+  TemplateRef,
 } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { Course } from '../model/course';
@@ -22,17 +23,14 @@ import { CourseImageComponent } from '../course-image/course-image.component';
   styleUrl: './course-card.component.css',
 })
 export class CourseCardComponent implements AfterViewInit, AfterContentInit {
-  @Input({ required: true }) course: Course;
-  // @Input({ required: true }) index: number;
+  @Input() course: Course;
+  @Input() noImageTmp: TemplateRef<any>;
   @Input() cardIndex: number;
-  @Output() courseSelected = new EventEmitter<Course>();
-  // @Output('courseSelected') courseEmitter = new EventEmitter<Course>();
 
-  // @ContentChild(CourseImageComponent) image: CourseImageComponent;
-  // @ContentChildren(CourseImageComponent)
-  // images: QueryList<CourseImageComponent>;
+  @Output('courseSelected') courseEmitter = new EventEmitter<Course>();
+
   @ContentChildren(CourseImageComponent, { read: ElementRef })
-  images: QueryList<CourseImageComponent>;
+  images: QueryList<ElementRef>;
 
   ngAfterViewInit(): void {}
 
@@ -45,8 +43,7 @@ export class CourseCardComponent implements AfterViewInit, AfterContentInit {
   }
 
   viewCourse() {
-    this.courseSelected.emit(this.course);
-    // this.courseEmitter.emit(this.course);
+    this.courseEmitter.emit(this.course);
   }
 
   cardClasses() {
